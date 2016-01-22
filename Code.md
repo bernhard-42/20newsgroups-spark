@@ -3,6 +3,8 @@
 
 
 ```bash
+%sh
+
 cd /tmp
 mkdir 20newsgroups
 cd 20newsgroups
@@ -16,6 +18,8 @@ ls  /tmp/20newsgroups/20news-bydate-train
 
 
 ```bash
+%sh
+
 hdfs dfs -put /tmp/20newsgroups 
 
 hdfs dfs -ls /user/zeppelin/20newsgroups/20news-bydate-train
@@ -29,6 +33,8 @@ hdfs dfs -ls /user/zeppelin/20newsgroups/20news-bydate-train
 
 
 ```scala
+%spark
+
 import org.apache.spark.rdd.RDD
 import org.apache.spark.mllib.feature.{HashingTF, IDF}
 import scala.collection.immutable.HashMap
@@ -68,6 +74,8 @@ val twenty_test  = prepareData("test").cache()
 
 
 ```scala
+%spark
+
 import org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS
 
 val model = new LogisticRegressionWithLBFGS().setNumClasses(4).run(twenty_train)
@@ -79,6 +87,8 @@ val model = new LogisticRegressionWithLBFGS().setNumClasses(4).run(twenty_train)
 
 
 ```scala
+%spark
+
 import org.apache.spark.rdd.RDD
 import org.apache.spark.mllib.evaluation.MulticlassMetrics
 
@@ -104,6 +114,9 @@ def validate(predictionsAndLabels: RDD[(Double, Double)], labels: Array[String])
 
 
 ```scala
+%spark
+
+
 val predictionsAndLabels = twenty_test.map { case LabeledPoint(label, features) =>
   val prediction = model.predict(features)
   (prediction, label)
@@ -123,6 +136,8 @@ val precision = metrics.precision
 
 
 ```scala
+%spark
+
 val categories = Array("alt.atheism", "soc.religion.christian", "comp.graphics", "sci.med")
 
 def prepareDF(typ: String) = {
@@ -145,6 +160,8 @@ val twenty_test_df  = prepareDF("test")
 
 
 ```scala
+%spark
+
 import org.apache.spark.ml.feature.{HashingTF, IDF, Tokenizer, StringIndexer, IndexToString}
 import org.apache.spark.ml.classification.NaiveBayes
 import org.apache.spark.ml.Pipeline
@@ -171,6 +188,8 @@ val model = pipeline.fit(twenty_train_df)
 
 
 ```scala
+%spark
+
 import org.apache.spark.sql.Row
 import org.apache.spark.mllib.evaluation.MulticlassMetrics
 
@@ -191,6 +210,8 @@ validate(predictionsAndLabels, indexer.labels)
 
 
 ```python
+%pyspark
+
 categories = ["alt.atheism", "soc.religion.christian", "comp.graphics", "sci.med"]
 
 LabeledDocument = Row("category", "text")
@@ -212,6 +233,8 @@ twenty_test_df  = prepareDF("test")
 
 
 ```python
+%pyspark
+
 from pyspark.ml.feature import HashingTF, IDF, Tokenizer, StringIndexer, StringIndexerModel
 from pyspark.ml.classification import NaiveBayes%md
 from pyspark.ml import Pipeline
@@ -235,6 +258,8 @@ model = pipeline.fit(twenty_train_df)
 
 
 ```python
+%pyspark
+
 from pyspark.mllib.evaluation import MulticlassMetrics
 
 prediction = model.transform(twenty_test_df)

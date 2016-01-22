@@ -13,9 +13,11 @@ with open("Code.md", "w") as fout:
 			text = paragraph["text"].split("\n")
 			if len(text[0]) > 0 and text[0][0] == "%":
 				typ = text[0][1:]
-				text = text[1:]
+				if typ == "md":
+					text = text[1:]
 			else: 
 				typ = "scala"
+				text = ["%spark", ""] + text
 			while (len(text[0]) == 0):
 				text = text[1:]
 
