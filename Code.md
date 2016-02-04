@@ -146,8 +146,8 @@ def prepareDF(typ: String) = {
     sc.union(rdds).toDF("category", "message")
 }
 
-val twenty_train_df = prepareDF("train")
-val twenty_test_df  = prepareDF("test") 
+val twenty_train_df = prepareDF("train").cache()
+val twenty_test_df  = prepareDF("test").cache()
 
 ```
 
@@ -174,7 +174,7 @@ val idf       = new IDF().setInputCol("rawFeatures").setOutputCol("features")
 
 val nb        = new NaiveBayes().setFeaturesCol("features").setLabelCol("label").setSmoothing(1.0).setModelType("multinomial") // implicit name of outputCol: "prediction"
 
-// val converter = new IndexToString().setInputCol("prediction").setOutputCol("predictedCategory").setLabels(indexer.labels)   // optional
+val converter = new IndexToString().setInputCol("prediction").setOutputCol("predictedCategory").setLabels(indexer.labels)   // optional
 
 
 val pipeline = new Pipeline().setStages(Array(indexer, tokenizer, hashingTF, idf, nb, converter))
@@ -223,8 +223,8 @@ def prepareDF(typ):
     return sc.union(rdds).toDF()
 
 
-twenty_train_df = prepareDF("train")
-twenty_test_df  = prepareDF("test") 
+twenty_train_df = prepareDF("train").cache()
+twenty_test_df  = prepareDF("test") .cache()
 
 ```
 
@@ -236,7 +236,7 @@ twenty_test_df  = prepareDF("test")
 %pyspark
 
 from pyspark.ml.feature import HashingTF, IDF, Tokenizer, StringIndexer, StringIndexerModel
-from pyspark.ml.classification import NaiveBayes%md
+from pyspark.ml.classification import NaiveBayes
 from pyspark.ml import Pipeline
 
 indexer   = StringIndexer(inputCol="category", outputCol="label").fit(twenty_train_df)
