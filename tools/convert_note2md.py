@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import json
 import sys
 
@@ -11,8 +13,9 @@ with open("Code.md", "w") as fout:
 	for paragraph in note["paragraphs"]:
 		if paragraph.has_key("text"):
 			text = paragraph["text"].split("\n")
+
 			if len(text[0]) > 0 and text[0][0] == "%":
-				typ = text[0][1:]
+				typ = text[0][1:].strip()
 				if typ == "md":
 					text = text[1:]
 			else: 
@@ -33,6 +36,10 @@ with open("Code.md", "w") as fout:
 					fprint("```python")
 				elif typ == "sh":
 					fprint("```bash")
+				elif typ == "dep":
+					fprint("```scala")
+				elif typ == "sql":
+					fprint("```sql")
 				for line in text:
 					fprint(indent + line)
 				fprint("```")
