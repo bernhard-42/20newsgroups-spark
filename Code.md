@@ -63,7 +63,7 @@ def prepareData(typ: String) = {
         val wordsData = sc.wholeTextFiles("/user/zeppelin/20newsgroups/20news-bydate-" + typ + "/" + category)
                           .map(message => tokenize(message._2).toSeq)
 
-        val hashingTF = new HashingTF(pow(2,18).toInt)
+        val hashingTF = new HashingTF(numFeatures)
         val featuredData = hashingTF.transform(wordsData).cache()
 
         val idf = new IDF().fit(featuredData)
@@ -102,9 +102,7 @@ import org.apache.spark.mllib.evaluation.MulticlassMetrics
 
 val toInt = {i:Double => i.asInstanceOf[Number].intValue}
 
-def validate(predictionsAndLabels: RDD[(Double, Double)], categories: Array[String]) = {
-    val metrics = new MulticlassMetrics(predictionsAndLabels)
-
+def printMetrics(metrics: MulticlassMetrics, categories: Array[String]) = {
     println("")
     println("CONFUSION MATRIX")
     println(metrics.confusionMatrix)
@@ -132,9 +130,9 @@ val predictionsAndLabels = twenty_test.map { case LabeledPoint(label, features) 
   (prediction, label)
 }
 
-validate(predictionsAndLabels, categories)
 val metrics = new MulticlassMetrics(predictionsAndLabels)
-val precision = metrics.precision
+
+printMetrics(metrics, categories)
 
 ```
 
@@ -159,7 +157,7 @@ numFeatures = 2**18   # default is 2**20, so reduce on smaller machines
 
 def tokenize(line):
     return (s.lower() for s in re.split(r'\s+', line))
-
+    
 def tfidf(category, typ):
     path = "/user/zeppelin/20newsgroups/20news-bydate-" + typ + "/" + category
     wordsData = sc.wholeTextFiles(path).map(lambda message: tokenize(message[1]))
@@ -194,11 +192,7 @@ model = LogisticRegressionWithLBFGS().train(twenty_train, numClasses=4)
 ```python
 %pyspark
 
-from pyspark.mllib.evaluation import MulticlassMetrics
-
-def validate(predictionsAndLabels, labels):
-    metrics = MulticlassMetrics(predictionsAndLabels)
-
+def printMetrics(metrics, labels):
     print ""
     print "CONFUSION MATRIX"
     print metrics.confusionMatrix()
@@ -212,16 +206,18 @@ def validate(predictionsAndLabels, labels):
         print "%22s:  %2.3f      %2.3f" % (l, p, r) 
     print ""
 
-
 ```
 
 
 ```python
 %pyspark
 
-predictionsAndLabels = twenty_test.map(lambda test:[float(model.predict(test.features)), test.label])
+from pyspark.mllib.evaluation import MulticlassMetrics
 
-validate(predictionsAndLabels, categories)
+predictionsAndLabels = twenty_test.map(lambda test:[float(model.predict(test.features)), test.label])
+metrics = MulticlassMetrics(predictionsAndLabels)
+
+printMetrics(metrics, categories)
 ```
 
 
@@ -291,17 +287,6 @@ val model = pipeline.fit(twenty_train_df)
 ```
 
 
-```scala
-%spark
-
-// val indexed = indexer.transform(twenty_train_df)
-// indexed.sample(false, 0.1).map(row => (row.getString(0), row.getDouble(2))).distinct().collect()
-val metrics = new MulticlassMetrics(predictionsAndLabels)
-
-indexer.labels
-```
-
-
 ### 3.1.3 Validation
 
 
@@ -316,7 +301,9 @@ val validation = model.transform(twenty_test_df)
 val predictions = validation.select("label", "prediction")
 val predictionsAndLabels = predictions.map {case Row(p: Double, l: Double) => (p, l)}
 
-validate(predictionsAndLabels, indexer.labels)
+val metrics = new MulticlassMetrics(predictionsAndLabels)
+
+printMetrics(metrics, categories)
 
 ```
 
@@ -333,12 +320,14 @@ categories = ["alt.atheism", "soc.religion.christian", "comp.graphics", "sci.med
 
 LabeledDocument = Row("category", "text")
 
+def categoryFromPath(path):
+    return path.split("/")[-2]
+    
 def prepareDF(typ):
     rdds = [sc.wholeTextFiles("/user/zeppelin/20newsgroups/20news-bydate-" + typ + "/" + category)\
-              .map(lambda x: LabeledDocument(x[0].split("/")[-2], x[1]))\
+              .map(lambda x: LabeledDocument(categoryFromPath(x[0]), x[1]))\
             for category in categories]
     return sc.union(rdds).toDF()
-
 
 twenty_train_df = prepareDF("train").cache()
 twenty_test_df  = prepareDF("test") .cache()
@@ -357,7 +346,6 @@ from pyspark.ml.classification import NaiveBayes
 from pyspark.ml import Pipeline
 
 indexer   = StringIndexer(inputCol="category", outputCol="label").fit(twenty_train_df)
-categories = indexer._call_java("labels")   # BUG in 1.5.2, indexer.labels note exposed
 
 tokenizer = Tokenizer(inputCol="text", outputCol="words")
 hashingTF = HashingTF(inputCol="words", outputCol="rawFeatures")
@@ -384,6 +372,14 @@ prediction = model.transform(twenty_test_df)
 predictionAndLabels = prediction.select("label", "prediction").rdd.cache()
 metrics = MulticlassMetrics(predictionAndLabels)
 
-validate(predictionAndLabels, categories)
+labels    = indexer._call_java("labels")   # BUG in 1.5.2, indexer.labels note exposed
+
+printMetrics(metrics, labels)
+```
+
+
+```python
+%pyspark
+prediction
 ```
 
