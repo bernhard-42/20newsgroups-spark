@@ -26,10 +26,18 @@ hdfs dfs -ls /user/zeppelin/20newsgroups/20news-bydate-train
 ```
 
 
-## 2 Multinomial Logistic Regression with MLLib (Scala)
+```python
+%pyspark
+
+print sc.version
+```
 
 
-### 2.1 Prepare Training and Test Data 
+# 2 Multinomial Logistic Regression with Spark MLlib
+
+## 2.1 In Scala
+
+### 2.1.1 Prepare Training and Test Data
 
 
 ```scala
@@ -70,7 +78,7 @@ val twenty_test  = prepareData("test").cache()
 ```
 
 
-### 2.2 Create Model
+### 2.1.2 Create Model
 
 
 ```scala
@@ -83,7 +91,7 @@ val model = new LogisticRegressionWithLBFGS().setNumClasses(4).run(twenty_train)
 ```
 
 
-### 2.3 Validate Model
+### 2.1.3 Validate Model
 
 
 ```scala
@@ -92,7 +100,9 @@ val model = new LogisticRegressionWithLBFGS().setNumClasses(4).run(twenty_train)
 import org.apache.spark.rdd.RDD
 import org.apache.spark.mllib.evaluation.MulticlassMetrics
 
-def validate(predictionsAndLabels: RDD[(Double, Double)], labels: Array[String]) = {
+val toInt = {i:Double => i.asInstanceOf[Number].intValue}
+
+def validate(predictionsAndLabels: RDD[(Double, Double)], categories: Array[String]) = {
     val metrics = new MulticlassMetrics(predictionsAndLabels)
 
     println("")
@@ -101,8 +111,8 @@ def validate(predictionsAndLabels: RDD[(Double, Double)], labels: Array[String])
     println("")
     println("CATEGORY                 PRECISION  RECALL")
     
-    for (i <- 0 to labels.size-1) {
-        val l = labels(i)
+    metrics.labels.map(toInt).foreach { i => 
+        val l = categories(i)
         val p = metrics.precision(i)
         val r = metrics.recall(i)
         println(f"$l%22s:  $p%2.3f      $r%2.3f")
@@ -129,10 +139,97 @@ val precision = metrics.precision
 ```
 
 
-## 3 Naive Bayes Classification with Spark ML Pipeline (Scala)
+## 2.2 In Python
+
+### 2.2.1 Prepare Training and Test Data
 
 
-### 3.1 Prepare Training and Test Data
+```python
+%pyspark
+
+from pyspark.rdd import RDD
+from pyspark.mllib.feature import HashingTF, IDF
+from pyspark.mllib.regression import LabeledPoint
+import re
+
+categories = ["alt.atheism", "soc.religion.christian", "comp.graphics", "sci.med"]
+categoryMap = {k:v for (v,k) in enumerate(categories)}
+
+numFeatures = 2**18   # default is 2**20, so reduce on smaller machines 
+
+def tokenize(line):
+    return (s.lower() for s in re.split(r'\s+', line))
+
+def tfidf(category, typ):
+    path = "/user/zeppelin/20newsgroups/20news-bydate-" + typ + "/" + category
+    wordsData = sc.wholeTextFiles(path).map(lambda message: tokenize(message[1]))
+    featuredData = HashingTF(numFeatures).transform(wordsData).cache()
+    idf = IDF().fit(featuredData)
+    tfidf = idf.transform(featuredData)
+    return tfidf.map(lambda row: LabeledPoint(categoryMap[category], row))
+
+
+twenty_train = reduce(RDD.union, [tfidf(category, "train") for category in categories]).cache()
+twenty_test  = reduce(RDD.union, [tfidf(category, "test" ) for category in categories]).cache()
+
+
+```
+
+
+### 2.2.2 Create Model
+
+
+```python
+%pyspark
+
+from pyspark.mllib.classification import LogisticRegressionWithLBFGS
+
+model = LogisticRegressionWithLBFGS().train(twenty_train, numClasses=4)
+```
+
+
+### 2.2.3 Validate Model
+
+
+```python
+%pyspark
+
+from pyspark.mllib.evaluation import MulticlassMetrics
+
+def validate(predictionsAndLabels, labels):
+    metrics = MulticlassMetrics(predictionsAndLabels)
+
+    print ""
+    print "CONFUSION MATRIX"
+    print metrics.confusionMatrix()
+    print ""
+    print "CATEGORY                 PRECISION  RECALL"
+    
+    for i in range(len(labels)):
+        l = labels[i]
+        p = metrics.precision(i)
+        r = metrics.recall(i)
+        print "%22s:  %2.3f      %2.3f" % (l, p, r) 
+    print ""
+
+
+```
+
+
+```python
+%pyspark
+
+predictionsAndLabels = twenty_test.map(lambda test:[float(model.predict(test.features)), test.label])
+
+validate(predictionsAndLabels, categories)
+```
+
+
+# 3 Naive Bayes Classification with Spark ML Pipeline 
+
+## 3.1 In Scala
+
+### 3.1.1 Prepare Training and Test Data
 
 
 ```scala
@@ -152,7 +249,7 @@ val twenty_test_df  = prepareDF("test").cache()
 ```
 
 
-### 3.2 Create Pipeline and Model
+### 3.1.2 Create Pipeline and Model
 
 `Note: As of Spark 1.6.0, Naive Bayes for Spark ML is still "experimental"`
 
@@ -166,15 +263,25 @@ import org.apache.spark.ml.feature.{HashingTF, IDF, Tokenizer, StringIndexer, In
 import org.apache.spark.ml.classification.NaiveBayes
 import org.apache.spark.ml.Pipeline
 
-val indexer   = new StringIndexer().setInputCol("category").setOutputCol("label").fit(twenty_train_df)
+val indexer   = new StringIndexer().setInputCol("category")
+                                   .setOutputCol("label")
+                                   .fit(twenty_train_df)
 
-val tokenizer = new Tokenizer().setInputCol("message").setOutputCol("words")
-val hashingTF = new HashingTF().setInputCol("words").setOutputCol("rawFeatures")
-val idf       = new IDF().setInputCol("rawFeatures").setOutputCol("features")
+val tokenizer = new Tokenizer().setInputCol("message")
+                               .setOutputCol("words")
+val hashingTF = new HashingTF().setInputCol("words")
+                               .setOutputCol("rawFeatures")
+val idf       = new IDF().setInputCol("rawFeatures")
+                         .setOutputCol("features")
 
-val nb        = new NaiveBayes().setFeaturesCol("features").setLabelCol("label").setSmoothing(1.0).setModelType("multinomial") // implicit name of outputCol: "prediction"
+val nb        = new NaiveBayes().setFeaturesCol("features")
+                                .setLabelCol("label")
+                                .setSmoothing(1.0)
+                                .setModelType("multinomial") // implicit name of outputCol: "prediction"
 
-val converter = new IndexToString().setInputCol("prediction").setOutputCol("predictedCategory").setLabels(indexer.labels)   // optional
+val converter = new IndexToString().setInputCol("prediction")
+                                   .setOutputCol("predictedCategory")
+                                   .setLabels(indexer.labels)
 
 
 val pipeline = new Pipeline().setStages(Array(indexer, tokenizer, hashingTF, idf, nb, converter))
@@ -184,7 +291,18 @@ val model = pipeline.fit(twenty_train_df)
 ```
 
 
-### 3.3 Validation
+```scala
+%spark
+
+// val indexed = indexer.transform(twenty_train_df)
+// indexed.sample(false, 0.1).map(row => (row.getString(0), row.getDouble(2))).distinct().collect()
+val metrics = new MulticlassMetrics(predictionsAndLabels)
+
+indexer.labels
+```
+
+
+### 3.1.3 Validation
 
 
 ```scala
@@ -203,10 +321,9 @@ validate(predictionsAndLabels, indexer.labels)
 ```
 
 
-## 4 Naive Bayes Classification with Spark ML Pipeline (Python)
+## 3.2 In Python
 
-
-### 4.1 Prepare Training and Test Data
+### 3.2.1 Prepare Training and Test Data
 
 
 ```python
@@ -229,7 +346,7 @@ twenty_test_df  = prepareDF("test") .cache()
 ```
 
 
-### 4.2 Create Pipeline and Model
+### 3.2.2 Create Pipeline and Model
 
 
 ```python
@@ -254,7 +371,7 @@ model = pipeline.fit(twenty_train_df)
 ```
 
 
-### 4.3 Validation
+### 3.2.3 Validation
 
 
 ```python
@@ -267,15 +384,6 @@ prediction = model.transform(twenty_test_df)
 predictionAndLabels = prediction.select("label", "prediction").rdd.cache()
 metrics = MulticlassMetrics(predictionAndLabels)
 
-print "\nCONFUSION MATRIX"
-print metrics.confusionMatrix().toArray()
-
-print "\nCATEGORY                 PRECISION  RECALL  F1"
-for i in range(len(categories)):
-    l = categories[i]
-    p = metrics.precision(float(i))
-    r = metrics.recall(float(i))
-    f = metrics.fMeasure(float(i))
-    print "%22s:  %2.2f       %2.2f    %2.2f" % (l, p, r, f)
+validate(predictionAndLabels, categories)
 ```
 

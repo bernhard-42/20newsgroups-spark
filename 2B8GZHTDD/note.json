@@ -2,7 +2,7 @@
   "paragraphs": [
     {
       "text": "%md\n\n## 1 Download Data and load into HDFS",
-      "dateUpdated": "Feb 4, 2016 5:30:30 PM",
+      "dateUpdated": "Feb 18, 2016 8:44:05 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -29,8 +29,8 @@
         "msg": "\u003ch2\u003e1 Download Data and load into HDFS\u003c/h2\u003e\n"
       },
       "dateCreated": "Jan 18, 2016 2:18:39 PM",
-      "dateStarted": "Feb 4, 2016 5:30:25 PM",
-      "dateFinished": "Feb 4, 2016 5:30:28 PM",
+      "dateStarted": "Feb 18, 2016 8:44:05 AM",
+      "dateFinished": "Feb 18, 2016 8:44:05 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -70,7 +70,7 @@
     },
     {
       "text": "%sh\n\nhdfs dfs -put /tmp/20newsgroups \n\nhdfs dfs -ls /user/zeppelin/20newsgroups/20news-bydate-train",
-      "dateUpdated": "Feb 4, 2016 5:31:24 PM",
+      "dateUpdated": "Feb 18, 2016 8:28:12 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -96,14 +96,47 @@
         "msg": "Found 20 items\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:22 /user/zeppelin/20newsgroups/20news-bydate-train/alt.atheism\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:22 /user/zeppelin/20newsgroups/20news-bydate-train/comp.graphics\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:22 /user/zeppelin/20newsgroups/20news-bydate-train/comp.os.ms-windows.misc\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:22 /user/zeppelin/20newsgroups/20news-bydate-train/comp.sys.ibm.pc.hardware\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:23 /user/zeppelin/20newsgroups/20news-bydate-train/comp.sys.mac.hardware\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:23 /user/zeppelin/20newsgroups/20news-bydate-train/comp.windows.x\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:23 /user/zeppelin/20newsgroups/20news-bydate-train/misc.forsale\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:24 /user/zeppelin/20newsgroups/20news-bydate-train/rec.autos\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:24 /user/zeppelin/20newsgroups/20news-bydate-train/rec.motorcycles\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:24 /user/zeppelin/20newsgroups/20news-bydate-train/rec.sport.baseball\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:24 /user/zeppelin/20newsgroups/20news-bydate-train/rec.sport.hockey\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:25 /user/zeppelin/20newsgroups/20news-bydate-train/sci.crypt\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:25 /user/zeppelin/20newsgroups/20news-bydate-train/sci.electronics\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:25 /user/zeppelin/20newsgroups/20news-bydate-train/sci.med\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:26 /user/zeppelin/20newsgroups/20news-bydate-train/sci.space\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:26 /user/zeppelin/20newsgroups/20news-bydate-train/soc.religion.christian\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:26 /user/zeppelin/20newsgroups/20news-bydate-train/talk.politics.guns\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:26 /user/zeppelin/20newsgroups/20news-bydate-train/talk.politics.mideast\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:27 /user/zeppelin/20newsgroups/20news-bydate-train/talk.politics.misc\ndrwxr-xr-x   - zeppelin hdfs          0 2016-01-27 20:27 /user/zeppelin/20newsgroups/20news-bydate-train/talk.religion.misc\n"
       },
       "dateCreated": "Jan 18, 2016 10:39:46 AM",
-      "dateStarted": "Feb 4, 2016 5:30:41 PM",
-      "dateFinished": "Feb 4, 2016 5:30:57 PM",
+      "dateStarted": "Feb 18, 2016 8:27:51 AM",
+      "dateFinished": "Feb 18, 2016 8:27:57 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n## 2 Multinomial Logistic Regression with MLLib (Scala)",
-      "dateUpdated": "Feb 4, 2016 5:31:03 PM",
+      "text": "%pyspark\n\nprint sc.version",
+      "dateUpdated": "Feb 18, 2016 9:15:19 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1455783295979_189240114",
+      "id": "20160218-091455_2140354700",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "1.5.2\n"
+      },
+      "dateCreated": "Feb 18, 2016 9:14:55 AM",
+      "dateStarted": "Feb 18, 2016 9:15:19 AM",
+      "dateFinished": "Feb 18, 2016 9:15:19 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n# 2 Multinomial Logistic Regression with Spark MLlib\n\n## 2.1 In Scala\n\n### 2.1.1 Prepare Training and Test Data",
+      "dateUpdated": "Feb 18, 2016 9:09:44 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -127,51 +160,17 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch2\u003e2 Multinomial Logistic Regression with MLLib (Scala)\u003c/h2\u003e\n"
+        "msg": "\u003ch1\u003e2 Multinomial Logistic Regression with Spark MLlib\u003c/h1\u003e\n\u003ch2\u003e2.1 In Scala\u003c/h2\u003e\n\u003ch3\u003e2.1.1 Prepare Training and Test Data\u003c/h3\u003e\n"
       },
       "dateCreated": "Jan 19, 2016 1:25:00 PM",
-      "dateStarted": "Feb 4, 2016 5:31:03 PM",
-      "dateFinished": "Feb 4, 2016 5:31:03 PM",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%md\n\n### 2.1 Prepare Training and Test Data ",
-      "dateUpdated": "Feb 4, 2016 5:31:06 PM",
-      "config": {
-        "colWidth": 12.0,
-        "graph": {
-          "mode": "table",
-          "height": 300.0,
-          "optionOpen": false,
-          "keys": [],
-          "values": [],
-          "groups": [],
-          "scatter": {}
-        },
-        "editorMode": "ace/mode/markdown",
-        "editorHide": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "jobName": "paragraph_1453371116148_1748455726",
-      "id": "20160121-101156_393058485",
-      "result": {
-        "code": "SUCCESS",
-        "type": "HTML",
-        "msg": "\u003ch3\u003e2.1 Prepare Training and Test Data\u003c/h3\u003e\n"
-      },
-      "dateCreated": "Jan 21, 2016 10:11:56 AM",
-      "dateStarted": "Feb 4, 2016 5:31:06 PM",
-      "dateFinished": "Feb 4, 2016 5:31:06 PM",
+      "dateStarted": "Feb 18, 2016 9:09:44 AM",
+      "dateFinished": "Feb 18, 2016 9:09:45 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "import org.apache.spark.rdd.RDD\nimport org.apache.spark.mllib.feature.{HashingTF, IDF}\nimport scala.collection.immutable.HashMap\nimport org.apache.spark.mllib.regression.LabeledPoint\nimport scala.math.pow\n\nval categories \u003d Array(\"alt.atheism\", \"soc.religion.christian\", \"comp.graphics\", \"sci.med\")\nval categoryMap \u003d categories.zipWithIndex.toMap\n\nval numFeatures \u003d pow(2,18).toInt  // default is 2**20, so reduce on smaller machines \n\ndef tokenize(line: String): Array[String] \u003d {\n    line.split(\"\"\"\\W+\"\"\").map(_.toLowerCase)\n}\n\ndef prepareData(typ: String) \u003d {\n    categories.map(category \u003d\u003e {\n        val wordsData \u003d sc.wholeTextFiles(\"/user/zeppelin/20newsgroups/20news-bydate-\" + typ + \"/\" + category)\n                          .map(message \u003d\u003e tokenize(message._2).toSeq)\n\n        val hashingTF \u003d new HashingTF(pow(2,18).toInt)\n        val featuredData \u003d hashingTF.transform(wordsData).cache()\n\n        val idf \u003d new IDF().fit(featuredData)\n        val tfidf \u003d idf.transform(featuredData)\n        tfidf.map(row \u003d\u003e LabeledPoint(categoryMap(category),row))\n    }).reduce(_ union _)\n}\n\nval twenty_train \u003d prepareData(\"train\").cache()\nval twenty_test  \u003d prepareData(\"test\").cache()\n",
-      "dateUpdated": "Feb 4, 2016 5:31:28 PM",
+      "dateUpdated": "Feb 18, 2016 2:18:59 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -195,17 +194,17 @@
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
-        "msg": "import org.apache.spark.rdd.RDD\nimport org.apache.spark.mllib.feature.{HashingTF, IDF}\nimport scala.collection.immutable.HashMap\nimport org.apache.spark.mllib.regression.LabeledPoint\nimport scala.math.pow\ncategories: Array[String] \u003d Array(alt.atheism, soc.religion.christian, comp.graphics, sci.med)\ncategoryMap: scala.collection.immutable.Map[String,Int] \u003d Map(alt.atheism -\u003e 0, soc.religion.christian -\u003e 1, comp.graphics -\u003e 2, sci.med -\u003e 3)\nnumFeatures: Int \u003d 262144\ntokenize: (line: String)Array[String]\nprepareData: (typ: String)org.apache.spark.rdd.RDD[org.apache.spark.mllib.regression.LabeledPoint]\ntwenty_train: org.apache.spark.rdd.RDD[org.apache.spark.mllib.regression.LabeledPoint] \u003d UnionRDD[26] at union at \u003cconsole\u003e:46\ntwenty_test: org.apache.spark.rdd.RDD[org.apache.spark.mllib.regression.LabeledPoint] \u003d UnionRDD[53] at union at \u003cconsole\u003e:46\n"
+        "msg": "import org.apache.spark.rdd.RDD\nimport org.apache.spark.mllib.feature.{HashingTF, IDF}\nimport scala.collection.immutable.HashMap\nimport org.apache.spark.mllib.regression.LabeledPoint\nimport scala.math.pow\ncategories: Array[String] \u003d Array(alt.atheism, soc.religion.christian, comp.graphics, sci.med)\ncategoryMap: scala.collection.immutable.Map[String,Int] \u003d Map(alt.atheism -\u003e 0, soc.religion.christian -\u003e 1, comp.graphics -\u003e 2, sci.med -\u003e 3)\nnumFeatures: Int \u003d 262144\ntokenize: (line: String)Array[String]\nprepareData: (typ: String)org.apache.spark.rdd.RDD[org.apache.spark.mllib.regression.LabeledPoint]\ntwenty_train: org.apache.spark.rdd.RDD[org.apache.spark.mllib.regression.LabeledPoint] \u003d UnionRDD[901] at union at \u003cconsole\u003e:71\ntwenty_test: org.apache.spark.rdd.RDD[org.apache.spark.mllib.regression.LabeledPoint] \u003d UnionRDD[928] at union at \u003cconsole\u003e:71\n"
       },
       "dateCreated": "Jan 19, 2016 11:11:05 PM",
-      "dateStarted": "Feb 4, 2016 5:31:28 PM",
-      "dateFinished": "Feb 4, 2016 5:35:00 PM",
+      "dateStarted": "Feb 18, 2016 2:18:59 PM",
+      "dateFinished": "Feb 18, 2016 2:20:24 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n\n### 2.2 Create Model",
-      "dateUpdated": "Feb 4, 2016 5:35:07 PM",
+      "text": "%md\n\n### 2.1.2 Create Model",
+      "dateUpdated": "Feb 18, 2016 9:11:39 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -229,17 +228,17 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003e2.2 Create Model\u003c/h3\u003e\n"
+        "msg": "\u003ch3\u003e2.1.2 Create Model\u003c/h3\u003e\n"
       },
       "dateCreated": "Jan 21, 2016 10:12:45 AM",
-      "dateStarted": "Feb 4, 2016 5:35:07 PM",
-      "dateFinished": "Feb 4, 2016 5:35:07 PM",
+      "dateStarted": "Feb 18, 2016 9:11:39 AM",
+      "dateFinished": "Feb 18, 2016 9:11:39 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "import org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS\n\nval model \u003d new LogisticRegressionWithLBFGS().setNumClasses(4).run(twenty_train)\n",
-      "dateUpdated": "Feb 4, 2016 5:35:09 PM",
+      "dateUpdated": "Feb 18, 2016 2:22:41 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -265,14 +264,14 @@
         "msg": "import org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS\nmodel: org.apache.spark.mllib.classification.LogisticRegressionModel \u003d org.apache.spark.mllib.classification.LogisticRegressionModel: intercept \u003d 0.0, numFeatures \u003d 786432, numClasses \u003d 4, threshold \u003d 0.5\n"
       },
       "dateCreated": "Jan 20, 2016 11:31:37 AM",
-      "dateStarted": "Feb 4, 2016 5:35:09 PM",
-      "dateFinished": "Feb 4, 2016 5:37:12 PM",
+      "dateStarted": "Feb 18, 2016 2:22:41 PM",
+      "dateFinished": "Feb 18, 2016 2:24:19 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n\n### 2.3 Validate Model",
-      "dateUpdated": "Feb 4, 2016 5:35:50 PM",
+      "text": "%md\n\n### 2.1.3 Validate Model",
+      "dateUpdated": "Feb 18, 2016 8:44:14 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -296,17 +295,17 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003e2.3 Validate Model\u003c/h3\u003e\n"
+        "msg": "\u003ch3\u003e2.1.3 Validate Model\u003c/h3\u003e\n"
       },
       "dateCreated": "Jan 21, 2016 10:14:07 AM",
-      "dateStarted": "Feb 4, 2016 5:35:51 PM",
-      "dateFinished": "Feb 4, 2016 5:35:51 PM",
+      "dateStarted": "Feb 18, 2016 8:44:14 AM",
+      "dateFinished": "Feb 18, 2016 8:44:15 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "import org.apache.spark.rdd.RDD\nimport org.apache.spark.mllib.evaluation.MulticlassMetrics\n\ndef validate(predictionsAndLabels: RDD[(Double, Double)], labels: Array[String]) \u003d {\n    val metrics \u003d new MulticlassMetrics(predictionsAndLabels)\n\n    println(\"\")\n    println(\"CONFUSION MATRIX\")\n    println(metrics.confusionMatrix)\n    println(\"\")\n    println(\"CATEGORY                 PRECISION  RECALL\")\n    \n    for (i \u003c- 0 to labels.size-1) {\n        val l \u003d labels(i)\n        val p \u003d metrics.precision(i)\n        val r \u003d metrics.recall(i)\n        println(f\"$l%22s:  $p%2.3f      $r%2.3f\")\n    }\n    println(\"\")\n}\n",
-      "dateUpdated": "Feb 4, 2016 5:37:21 PM",
+      "text": "import org.apache.spark.rdd.RDD\nimport org.apache.spark.mllib.evaluation.MulticlassMetrics\n\nval toInt \u003d {i:Double \u003d\u003e i.asInstanceOf[Number].intValue}\n\ndef validate(predictionsAndLabels: RDD[(Double, Double)], categories: Array[String]) \u003d {\n    val metrics \u003d new MulticlassMetrics(predictionsAndLabels)\n\n    println(\"\")\n    println(\"CONFUSION MATRIX\")\n    println(metrics.confusionMatrix)\n    println(\"\")\n    println(\"CATEGORY                 PRECISION  RECALL\")\n    \n    metrics.labels.map(toInt).foreach { i \u003d\u003e \n        val l \u003d categories(i)\n        val p \u003d metrics.precision(i)\n        val r \u003d metrics.recall(i)\n        println(f\"$l%22s:  $p%2.3f      $r%2.3f\")\n    }\n    println(\"\")\n}\n",
+      "dateUpdated": "Feb 18, 2016 2:33:14 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -329,17 +328,17 @@
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
-        "msg": "import org.apache.spark.rdd.RDD\nimport org.apache.spark.mllib.evaluation.MulticlassMetrics\nvalidate: (predictionsAndLabels: org.apache.spark.rdd.RDD[(Double, Double)], labels: Array[String])Unit\n"
+        "msg": "import org.apache.spark.rdd.RDD\nimport org.apache.spark.mllib.evaluation.MulticlassMetrics\ntoInt: Double \u003d\u003e Int \u003d \u003cfunction1\u003e\nvalidate: (predictionsAndLabels: org.apache.spark.rdd.RDD[(Double, Double)], categories: Array[String])Unit\n"
       },
       "dateCreated": "Jan 21, 2016 1:07:36 PM",
-      "dateStarted": "Feb 4, 2016 5:37:21 PM",
-      "dateFinished": "Feb 4, 2016 5:37:25 PM",
+      "dateStarted": "Feb 18, 2016 2:33:14 PM",
+      "dateFinished": "Feb 18, 2016 2:33:16 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "\nval predictionsAndLabels \u003d twenty_test.map { case LabeledPoint(label, features) \u003d\u003e\n  val prediction \u003d model.predict(features)\n  (prediction, label)\n}\n\nvalidate(predictionsAndLabels, categories)\nval metrics \u003d new MulticlassMetrics(predictionsAndLabels)\nval precision \u003d metrics.precision\n",
-      "dateUpdated": "Feb 4, 2016 5:37:32 PM",
+      "dateUpdated": "Feb 18, 2016 2:33:21 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -362,17 +361,17 @@
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
-        "msg": "predictionsAndLabels: org.apache.spark.rdd.RDD[(Double, Double)] \u003d MapPartitionsRDD[150] at map at \u003cconsole\u003e:47\n\nCONFUSION MATRIX\n282.0  19.0   10.0   8.0    \n10.0   381.0  5.0    2.0    \n10.0   8.0    363.0  8.0    \n11.0   17.0   44.0   324.0  \n\nCATEGORY                 PRECISION  RECALL\n           alt.atheism:  0,901      0,884\nsoc.religion.christian:  0,896      0,957\n         comp.graphics:  0,860      0,933\n               sci.med:  0,947      0,818\n\nmetrics: org.apache.spark.mllib.evaluation.MulticlassMetrics \u003d org.apache.spark.mllib.evaluation.MulticlassMetrics@45aa68e6\nprecision: Double \u003d 0.8988015978695073\n"
+        "msg": "predictionsAndLabels: org.apache.spark.rdd.RDD[(Double, Double)] \u003d MapPartitionsRDD[1059] at map at \u003cconsole\u003e:102\n\nCONFUSION MATRIX\n282.0  19.0   10.0   8.0    \n10.0   381.0  5.0    2.0    \n10.0   8.0    363.0  8.0    \n11.0   17.0   44.0   324.0  \n\nCATEGORY                 PRECISION  RECALL\n           alt.atheism:  0,901      0,884\nsoc.religion.christian:  0,896      0,957\n         comp.graphics:  0,860      0,933\n               sci.med:  0,947      0,818\n\nmetrics: org.apache.spark.mllib.evaluation.MulticlassMetrics \u003d org.apache.spark.mllib.evaluation.MulticlassMetrics@edc6282\nprecision: Double \u003d 0.8988015978695073\n"
       },
       "dateCreated": "Jan 20, 2016 3:58:36 PM",
-      "dateStarted": "Feb 4, 2016 5:37:32 PM",
-      "dateFinished": "Feb 4, 2016 5:37:46 PM",
+      "dateStarted": "Feb 18, 2016 2:33:21 PM",
+      "dateFinished": "Feb 18, 2016 2:33:30 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n## 3 Naive Bayes Classification with Spark ML Pipeline (Scala)",
-      "dateUpdated": "Feb 4, 2016 5:35:57 PM",
+      "text": "%md\n## 2.2 In Python\n\n### 2.2.1 Prepare Training and Test Data",
+      "dateUpdated": "Feb 18, 2016 9:16:03 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -384,29 +383,62 @@
           "groups": [],
           "scatter": {}
         },
-        "editorMode": "ace/mode/markdown",
-        "editorHide": false
+        "editorMode": "ace/mode/scala",
+        "editorHide": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "jobName": "paragraph_1453125220983_-2004907816",
-      "id": "20160118-135340_1948903363",
+      "jobName": "paragraph_1455780995619_-774230784",
+      "id": "20160218-083635_879006442",
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch2\u003e3 Naive Bayes Classification with Spark ML Pipeline (Scala)\u003c/h2\u003e\n"
+        "msg": "\u003ch2\u003e2.2 In Python\u003c/h2\u003e\n\u003ch3\u003e2.2.1 Prepare Training and Test Data\u003c/h3\u003e\n"
       },
-      "dateCreated": "Jan 18, 2016 1:53:40 PM",
-      "dateStarted": "Feb 4, 2016 5:35:57 PM",
-      "dateFinished": "Feb 4, 2016 5:35:58 PM",
+      "dateCreated": "Feb 18, 2016 8:36:35 AM",
+      "dateStarted": "Feb 18, 2016 9:16:03 AM",
+      "dateFinished": "Feb 18, 2016 9:16:03 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n\n### 3.1 Prepare Training and Test Data",
-      "dateUpdated": "Feb 4, 2016 5:35:59 PM",
+      "text": "%pyspark\n\nfrom pyspark.rdd import RDD\nfrom pyspark.mllib.feature import HashingTF, IDF\nfrom pyspark.mllib.regression import LabeledPoint\nimport re\n\ncategories \u003d [\"alt.atheism\", \"soc.religion.christian\", \"comp.graphics\", \"sci.med\"]\ncategoryMap \u003d {k:v for (v,k) in enumerate(categories)}\n\nnumFeatures \u003d 2**18   # default is 2**20, so reduce on smaller machines \n\ndef tokenize(line):\n    return (s.lower() for s in re.split(r\u0027\\s+\u0027, line))\n\ndef tfidf(category, typ):\n    path \u003d \"/user/zeppelin/20newsgroups/20news-bydate-\" + typ + \"/\" + category\n    wordsData \u003d sc.wholeTextFiles(path).map(lambda message: tokenize(message[1]))\n    featuredData \u003d HashingTF(numFeatures).transform(wordsData).cache()\n    idf \u003d IDF().fit(featuredData)\n    tfidf \u003d idf.transform(featuredData)\n    return tfidf.map(lambda row: LabeledPoint(categoryMap[category], row))\n\n\ntwenty_train \u003d reduce(RDD.union, [tfidf(category, \"train\") for category in categories]).cache()\ntwenty_test  \u003d reduce(RDD.union, [tfidf(category, \"test\" ) for category in categories]).cache()\n\n",
+      "dateUpdated": "Feb 18, 2016 2:35:20 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1455780958911_541733048",
+      "id": "20160218-083558_1772232080",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Feb 18, 2016 8:35:58 AM",
+      "dateStarted": "Feb 18, 2016 2:35:20 PM",
+      "dateFinished": "Feb 18, 2016 2:36:38 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n### 2.2.2 Create Model",
+      "dateUpdated": "Feb 18, 2016 8:49:08 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -425,22 +457,188 @@
         "params": {},
         "forms": {}
       },
-      "jobName": "paragraph_1453126755229_795112433",
-      "id": "20160118-141915_1709685289",
+      "jobName": "paragraph_1455780973468_-2144568448",
+      "id": "20160218-083613_2142608376",
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003e3.1 Prepare Training and Test Data\u003c/h3\u003e\n"
+        "msg": "\u003ch3\u003e2.2.2 Create Model\u003c/h3\u003e\n"
       },
-      "dateCreated": "Jan 18, 2016 2:19:15 PM",
-      "dateStarted": "Feb 4, 2016 5:36:00 PM",
-      "dateFinished": "Feb 4, 2016 5:36:00 PM",
+      "dateCreated": "Feb 18, 2016 8:36:13 AM",
+      "dateStarted": "Feb 18, 2016 8:49:08 AM",
+      "dateFinished": "Feb 18, 2016 8:49:08 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nfrom pyspark.mllib.classification import LogisticRegressionWithLBFGS\n\nmodel \u003d LogisticRegressionWithLBFGS().train(twenty_train, numClasses\u003d4)",
+      "dateUpdated": "Feb 18, 2016 2:40:23 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1455780969362_-1706354775",
+      "id": "20160218-083609_1052265966",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Feb 18, 2016 8:36:09 AM",
+      "dateStarted": "Feb 18, 2016 2:40:23 PM",
+      "dateFinished": "Feb 18, 2016 2:43:10 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n### 2.2.3 Validate Model",
+      "dateUpdated": "Feb 18, 2016 8:56:18 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1455780966694_1928383408",
+      "id": "20160218-083606_519882796",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003e2.2.3 Validate Model\u003c/h3\u003e\n"
+      },
+      "dateCreated": "Feb 18, 2016 8:36:06 AM",
+      "dateStarted": "Feb 18, 2016 8:56:18 AM",
+      "dateFinished": "Feb 18, 2016 8:56:18 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nfrom pyspark.mllib.evaluation import MulticlassMetrics\n\ndef validate(predictionsAndLabels, labels):\n    metrics \u003d MulticlassMetrics(predictionsAndLabels)\n\n    print \"\"\n    print \"CONFUSION MATRIX\"\n    print metrics.confusionMatrix()\n    print \"\"\n    print \"CATEGORY                 PRECISION  RECALL\"\n    \n    for i in range(len(labels)):\n        l \u003d labels[i]\n        p \u003d metrics.precision(i)\n        r \u003d metrics.recall(i)\n        print \"%22s:  %2.3f      %2.3f\" % (l, p, r) \n    print \"\"\n\n",
+      "dateUpdated": "Feb 18, 2016 2:44:57 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1455780963478_-72310872",
+      "id": "20160218-083603_1149087728",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Feb 18, 2016 8:36:03 AM",
+      "dateStarted": "Feb 18, 2016 2:44:57 PM",
+      "dateFinished": "Feb 18, 2016 2:44:57 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\npredictionsAndLabels \u003d twenty_test.map(lambda test:[float(model.predict(test.features)), test.label])\n\nvalidate(predictionsAndLabels, categories)",
+      "dateUpdated": "Feb 18, 2016 2:44:59 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1455781372651_-1251988750",
+      "id": "20160218-084252_1289844655",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "\nCONFUSION MATRIX\nDenseMatrix([[ 267.,   38.,    6.,    8.],\n             [   6.,  387.,    5.,    0.],\n             [  11.,    8.,  363.,    7.],\n             [  16.,   20.,   53.,  307.]])\n\nCATEGORY                 PRECISION  RECALL\n           alt.atheism:  0.890      0.837\nsoc.religion.christian:  0.854      0.972\n         comp.graphics:  0.850      0.933\n               sci.med:  0.953      0.775\n\n"
+      },
+      "dateCreated": "Feb 18, 2016 8:42:52 AM",
+      "dateStarted": "Feb 18, 2016 2:44:59 PM",
+      "dateFinished": "Feb 18, 2016 2:45:03 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n# 3 Naive Bayes Classification with Spark ML Pipeline \n\n## 3.1 In Scala\n\n### 3.1.1 Prepare Training and Test Data",
+      "dateUpdated": "Feb 18, 2016 9:06:56 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1453125220983_-2004907816",
+      "id": "20160118-135340_1948903363",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch1\u003e3 Naive Bayes Classification with Spark ML Pipeline\u003c/h1\u003e\n\u003ch2\u003e3.1 In Scala\u003c/h2\u003e\n\u003ch3\u003e3.1.1 Prepare Training and Test Data\u003c/h3\u003e\n"
+      },
+      "dateCreated": "Jan 18, 2016 1:53:40 PM",
+      "dateStarted": "Feb 18, 2016 9:06:54 AM",
+      "dateFinished": "Feb 18, 2016 9:06:54 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "val categories \u003d Array(\"alt.atheism\", \"soc.religion.christian\", \"comp.graphics\", \"sci.med\")\n\ndef prepareDF(typ: String) \u003d {\n    val rdds \u003d categories.map(category \u003d\u003e sc.wholeTextFiles(\"/user/zeppelin/20newsgroups/20news-bydate-\" + typ + \"/\" + category)\n                                            .map(msg \u003d\u003e (category, msg._2)))\n    sc.union(rdds).toDF(\"category\", \"message\")\n}\n\nval twenty_train_df \u003d prepareDF(\"train\").cache()\nval twenty_test_df  \u003d prepareDF(\"test\").cache()\n",
-      "dateUpdated": "Feb 4, 2016 5:37:55 PM",
+      "dateUpdated": "Feb 18, 2016 11:29:16 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -466,14 +664,14 @@
         "msg": "categories: Array[String] \u003d Array(alt.atheism, soc.religion.christian, comp.graphics, sci.med)\nprepareDF: (typ: String)org.apache.spark.sql.DataFrame\ntwenty_train_df: org.apache.spark.sql.DataFrame \u003d [category: string, message: string]\ntwenty_test_df: org.apache.spark.sql.DataFrame \u003d [category: string, message: string]\n"
       },
       "dateCreated": "Jan 18, 2016 10:43:54 AM",
-      "dateStarted": "Feb 4, 2016 5:37:55 PM",
-      "dateFinished": "Feb 4, 2016 5:38:07 PM",
+      "dateStarted": "Feb 18, 2016 11:29:16 AM",
+      "dateFinished": "Feb 18, 2016 11:29:33 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n### 3.2 Create Pipeline and Model\n\n`Note: As of Spark 1.6.0, Naive Bayes for Spark ML is still \"experimental\"`\n\n",
-      "dateUpdated": "Feb 4, 2016 5:38:12 PM",
+      "text": "%md\n### 3.1.2 Create Pipeline and Model\n\n`Note: As of Spark 1.6.0, Naive Bayes for Spark ML is still \"experimental\"`\n\n",
+      "dateUpdated": "Feb 18, 2016 9:07:10 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -497,17 +695,17 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003e3.2 Create Pipeline and Model\u003c/h3\u003e\n\u003cp\u003e\u003ccode\u003eNote: As of Spark 1.6.0, Naive Bayes for Spark ML is still \"experimental\"\u003c/code\u003e\u003c/p\u003e\n"
+        "msg": "\u003ch3\u003e3.1.2 Create Pipeline and Model\u003c/h3\u003e\n\u003cp\u003e\u003ccode\u003eNote: As of Spark 1.6.0, Naive Bayes for Spark ML is still \"experimental\"\u003c/code\u003e\u003c/p\u003e\n"
       },
       "dateCreated": "Jan 18, 2016 5:40:30 PM",
-      "dateStarted": "Feb 4, 2016 5:38:12 PM",
-      "dateFinished": "Feb 4, 2016 5:38:12 PM",
+      "dateStarted": "Feb 18, 2016 9:07:06 AM",
+      "dateFinished": "Feb 18, 2016 9:07:06 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "import org.apache.spark.ml.feature.{HashingTF, IDF, Tokenizer, StringIndexer, IndexToString}\nimport org.apache.spark.ml.classification.NaiveBayes\nimport org.apache.spark.ml.Pipeline\n\nval indexer   \u003d new StringIndexer().setInputCol(\"category\").setOutputCol(\"label\").fit(twenty_train_df)\n\nval tokenizer \u003d new Tokenizer().setInputCol(\"message\").setOutputCol(\"words\")\nval hashingTF \u003d new HashingTF().setInputCol(\"words\").setOutputCol(\"rawFeatures\")\nval idf       \u003d new IDF().setInputCol(\"rawFeatures\").setOutputCol(\"features\")\n\nval nb        \u003d new NaiveBayes().setFeaturesCol(\"features\").setLabelCol(\"label\").setSmoothing(1.0).setModelType(\"multinomial\") // implicit name of outputCol: \"prediction\"\n\nval converter \u003d new IndexToString().setInputCol(\"prediction\").setOutputCol(\"predictedCategory\").setLabels(indexer.labels)   // optional\n\n\nval pipeline \u003d new Pipeline().setStages(Array(indexer, tokenizer, hashingTF, idf, nb, converter))\n\nval model \u003d pipeline.fit(twenty_train_df)\n",
-      "dateUpdated": "Feb 4, 2016 5:38:15 PM",
+      "text": "import org.apache.spark.ml.feature.{HashingTF, IDF, Tokenizer, StringIndexer, IndexToString}\nimport org.apache.spark.ml.classification.NaiveBayes\nimport org.apache.spark.ml.Pipeline\n\nval indexer   \u003d new StringIndexer().setInputCol(\"category\")\n                                   .setOutputCol(\"label\")\n                                   .fit(twenty_train_df)\n\nval tokenizer \u003d new Tokenizer().setInputCol(\"message\")\n                               .setOutputCol(\"words\")\nval hashingTF \u003d new HashingTF().setInputCol(\"words\")\n                               .setOutputCol(\"rawFeatures\")\nval idf       \u003d new IDF().setInputCol(\"rawFeatures\")\n                         .setOutputCol(\"features\")\n\nval nb        \u003d new NaiveBayes().setFeaturesCol(\"features\")\n                                .setLabelCol(\"label\")\n                                .setSmoothing(1.0)\n                                .setModelType(\"multinomial\") // implicit name of outputCol: \"prediction\"\n\nval converter \u003d new IndexToString().setInputCol(\"prediction\")\n                                   .setOutputCol(\"predictedCategory\")\n                                   .setLabels(indexer.labels)\n\n\nval pipeline \u003d new Pipeline().setStages(Array(indexer, tokenizer, hashingTF, idf, nb, converter))\n\nval model \u003d pipeline.fit(twenty_train_df)\n",
+      "dateUpdated": "Feb 18, 2016 11:54:43 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -530,17 +728,50 @@
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
-        "msg": "import org.apache.spark.ml.feature.{HashingTF, IDF, Tokenizer, StringIndexer, IndexToString}\nimport org.apache.spark.ml.classification.NaiveBayes\nimport org.apache.spark.ml.Pipeline\nindexer: org.apache.spark.ml.feature.StringIndexerModel \u003d strIdx_50458e81c321\ntokenizer: org.apache.spark.ml.feature.Tokenizer \u003d tok_fc5a725fd865\nhashingTF: org.apache.spark.ml.feature.HashingTF \u003d hashingTF_e351bbd15a38\nidf: org.apache.spark.ml.feature.IDF \u003d idf_d9ccc5d45867\nnb: org.apache.spark.ml.classification.NaiveBayes \u003d nb_187750d57526\nconverter: org.apache.spark.ml.feature.IndexToString \u003d idxToStr_76ae869bc639\npipeline: org.apache.spark.ml.Pipeline \u003d pipeline_29d15659d0d3\nmodel: org.apache.spark.ml.PipelineModel \u003d pipeline_29d15659d0d3\n"
+        "msg": "import org.apache.spark.ml.feature.{HashingTF, IDF, Tokenizer, StringIndexer, IndexToString}\nimport org.apache.spark.ml.classification.NaiveBayes\nimport org.apache.spark.ml.Pipeline\nindexer: org.apache.spark.ml.feature.StringIndexerModel \u003d strIdx_a7c54c2dda81\ntokenizer: org.apache.spark.ml.feature.Tokenizer \u003d tok_34e1241f77ea\nhashingTF: org.apache.spark.ml.feature.HashingTF \u003d hashingTF_ec2d1e847860\nidf: org.apache.spark.ml.feature.IDF \u003d idf_77f86e0cf0f7\nnb: org.apache.spark.ml.classification.NaiveBayes \u003d nb_3e7cff05c5b4\nconverter: org.apache.spark.ml.feature.IndexToString \u003d idxToStr_8292bd3cdb4f\npipeline: org.apache.spark.ml.Pipeline \u003d pipeline_e872ea7cdd28\nmodel: org.apache.spark.ml.PipelineModel \u003d pipeline_e872ea7cdd28\n"
       },
       "dateCreated": "Jan 18, 2016 2:18:15 PM",
-      "dateStarted": "Feb 4, 2016 5:38:15 PM",
-      "dateFinished": "Feb 4, 2016 5:39:16 PM",
+      "dateStarted": "Feb 18, 2016 11:54:43 AM",
+      "dateFinished": "Feb 18, 2016 11:54:49 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n### 3.3 Validation",
-      "dateUpdated": "Feb 4, 2016 5:39:20 PM",
+      "text": "// val indexed \u003d indexer.transform(twenty_train_df)\n// indexed.sample(false, 0.1).map(row \u003d\u003e (row.getString(0), row.getDouble(2))).distinct().collect()\nval metrics \u003d new MulticlassMetrics(predictionsAndLabels)\n\nindexer.labels",
+      "dateUpdated": "Feb 18, 2016 12:10:01 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1455791969374_-1559463968",
+      "id": "20160218-113929_2099967107",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "metrics: org.apache.spark.mllib.evaluation.MulticlassMetrics \u003d org.apache.spark.mllib.evaluation.MulticlassMetrics@382332a\nres136: Array[String] \u003d Array(soc.religion.christian, sci.med, comp.graphics, alt.atheism)\n"
+      },
+      "dateCreated": "Feb 18, 2016 11:39:29 AM",
+      "dateStarted": "Feb 18, 2016 12:10:01 PM",
+      "dateFinished": "Feb 18, 2016 12:10:02 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### 3.1.3 Validation",
+      "dateUpdated": "Feb 18, 2016 9:07:28 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -564,17 +795,17 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003e3.3 Validation\u003c/h3\u003e\n"
+        "msg": "\u003ch3\u003e3.1.3 Validation\u003c/h3\u003e\n"
       },
       "dateCreated": "Jan 18, 2016 5:40:08 PM",
-      "dateStarted": "Feb 4, 2016 5:39:20 PM",
-      "dateFinished": "Feb 4, 2016 5:39:20 PM",
+      "dateStarted": "Feb 18, 2016 9:07:25 AM",
+      "dateFinished": "Feb 18, 2016 9:07:25 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "import org.apache.spark.sql.Row\nimport org.apache.spark.mllib.evaluation.MulticlassMetrics\n\nval validation \u003d model.transform(twenty_test_df)\n\nval predictions \u003d validation.select(\"label\", \"prediction\")\nval predictionsAndLabels \u003d predictions.map {case Row(p: Double, l: Double) \u003d\u003e (p, l)}\n\nvalidate(predictionsAndLabels, indexer.labels)\n",
-      "dateUpdated": "Feb 4, 2016 5:39:24 PM",
+      "dateUpdated": "Feb 18, 2016 11:55:40 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -597,17 +828,17 @@
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
-        "msg": "import org.apache.spark.sql.Row\nimport org.apache.spark.mllib.evaluation.MulticlassMetrics\nvalidation: org.apache.spark.sql.DataFrame \u003d [category: string, message: string, label: double, words: array\u003cstring\u003e, rawFeatures: vector, features: vector, rawPrediction: vector, probability: vector, prediction: double, predictedCategory: string]\npredictions: org.apache.spark.sql.DataFrame \u003d [label: double, prediction: double]\npredictionsAndLabels: org.apache.spark.rdd.RDD[(Double, Double)] \u003d MapPartitionsRDD[215] at map at \u003cconsole\u003e:66\n\nCONFUSION MATRIX\n385.0  16.0   6.0    29.0   \n5.0    350.0  9.0    4.0    \n3.0    15.0   368.0  1.0    \n5.0    15.0   6.0    285.0  \n\nCATEGORY                 PRECISION  RECALL\nsoc.religion.christian:  0,967      0,883\n               sci.med:  0,884      0,951\n         comp.graphics:  0,946      0,951\n           alt.atheism:  0,893      0,916\n\n"
+        "msg": "import org.apache.spark.sql.Row\nimport org.apache.spark.mllib.evaluation.MulticlassMetrics\nvalidation: org.apache.spark.sql.DataFrame \u003d [category: string, message: string, label: double, words: array\u003cstring\u003e, rawFeatures: vector, features: vector, rawPrediction: vector, probability: vector, prediction: double, predictedCategory: string]\npredictions: org.apache.spark.sql.DataFrame \u003d [label: double, prediction: double]\npredictionsAndLabels: org.apache.spark.rdd.RDD[(Double, Double)] \u003d MapPartitionsRDD[369] at map at \u003cconsole\u003e:72\n\nCONFUSION MATRIX\n385.0  16.0   6.0    29.0   \n5.0    350.0  9.0    4.0    \n3.0    15.0   368.0  1.0    \n5.0    15.0   6.0    285.0  \n\nCATEGORY                 PRECISION  RECALL\nsoc.religion.christian:  0,967      0,883\n               sci.med:  0,884      0,951\n         comp.graphics:  0,946      0,951\n           alt.atheism:  0,893      0,916\n\n"
       },
       "dateCreated": "Jan 21, 2016 1:17:58 PM",
-      "dateStarted": "Feb 4, 2016 5:39:24 PM",
-      "dateFinished": "Feb 4, 2016 5:40:02 PM",
+      "dateStarted": "Feb 18, 2016 11:55:40 AM",
+      "dateFinished": "Feb 18, 2016 11:55:48 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n\n## 4 Naive Bayes Classification with Spark ML Pipeline (Python)",
-      "dateUpdated": "Feb 4, 2016 5:39:30 PM",
+      "text": "%md\n\n## 3.2 In Python\n\n### 3.2.1 Prepare Training and Test Data",
+      "dateUpdated": "Feb 18, 2016 9:08:03 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -631,50 +862,17 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch2\u003e4 Naive Bayes Classification with Spark ML Pipeline (Python)\u003c/h2\u003e\n"
+        "msg": "\u003ch2\u003e3.2 In Python\u003c/h2\u003e\n\u003ch3\u003e3.2.1 Prepare Training and Test Data\u003c/h3\u003e\n"
       },
       "dateCreated": "Jan 21, 2016 1:33:11 PM",
-      "dateStarted": "Feb 4, 2016 5:39:30 PM",
-      "dateFinished": "Feb 4, 2016 5:39:30 PM",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%md\n\n### 4.1 Prepare Training and Test Data",
-      "dateUpdated": "Feb 4, 2016 5:39:32 PM",
-      "config": {
-        "colWidth": 12.0,
-        "graph": {
-          "mode": "table",
-          "height": 300.0,
-          "optionOpen": false,
-          "keys": [],
-          "values": [],
-          "groups": [],
-          "scatter": {}
-        },
-        "editorHide": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "jobName": "paragraph_1453385273734_-1142089870",
-      "id": "20160121-140753_1667930935",
-      "result": {
-        "code": "SUCCESS",
-        "type": "HTML",
-        "msg": "\u003ch3\u003e4.1 Prepare Training and Test Data\u003c/h3\u003e\n"
-      },
-      "dateCreated": "Jan 21, 2016 2:07:53 PM",
-      "dateStarted": "Feb 4, 2016 5:39:32 PM",
-      "dateFinished": "Feb 4, 2016 5:39:32 PM",
+      "dateStarted": "Feb 18, 2016 9:08:01 AM",
+      "dateFinished": "Feb 18, 2016 9:08:01 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\n\ncategories \u003d [\"alt.atheism\", \"soc.religion.christian\", \"comp.graphics\", \"sci.med\"]\n\nLabeledDocument \u003d Row(\"category\", \"text\")\n\ndef prepareDF(typ):\n    rdds \u003d [sc.wholeTextFiles(\"/user/zeppelin/20newsgroups/20news-bydate-\" + typ + \"/\" + category)\\\n              .map(lambda x: LabeledDocument(x[0].split(\"/\")[-2], x[1]))\\\n            for category in categories]\n    return sc.union(rdds).toDF()\n\n\ntwenty_train_df \u003d prepareDF(\"train\").cache()\ntwenty_test_df  \u003d prepareDF(\"test\") .cache()\n",
-      "dateUpdated": "Feb 4, 2016 5:40:35 PM",
+      "dateUpdated": "Feb 18, 2016 12:45:40 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -700,14 +898,14 @@
         "msg": ""
       },
       "dateCreated": "Jan 21, 2016 2:08:22 PM",
-      "dateStarted": "Feb 4, 2016 5:40:35 PM",
-      "dateFinished": "Feb 4, 2016 5:40:49 PM",
+      "dateStarted": "Feb 18, 2016 12:45:40 PM",
+      "dateFinished": "Feb 18, 2016 12:45:51 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n\n### 4.2 Create Pipeline and Model",
-      "dateUpdated": "Feb 4, 2016 5:40:40 PM",
+      "text": "%md\n\n### 3.2.2 Create Pipeline and Model",
+      "dateUpdated": "Feb 18, 2016 9:08:40 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -731,17 +929,17 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003e4.2 Create Pipeline and Model\u003c/h3\u003e\n"
+        "msg": "\u003ch3\u003e3.2.2 Create Pipeline and Model\u003c/h3\u003e\n"
       },
       "dateCreated": "Jan 22, 2016 3:32:20 PM",
-      "dateStarted": "Feb 4, 2016 5:40:40 PM",
-      "dateFinished": "Feb 4, 2016 5:40:40 PM",
+      "dateStarted": "Feb 18, 2016 9:08:37 AM",
+      "dateFinished": "Feb 18, 2016 9:08:37 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\n\nfrom pyspark.ml.feature import HashingTF, IDF, Tokenizer, StringIndexer, StringIndexerModel\nfrom pyspark.ml.classification import NaiveBayes\nfrom pyspark.ml import Pipeline\n\nindexer   \u003d StringIndexer(inputCol\u003d\"category\", outputCol\u003d\"label\").fit(twenty_train_df)\ncategories \u003d indexer._call_java(\"labels\")   # BUG in 1.5.2, indexer.labels note exposed\n\ntokenizer \u003d Tokenizer(inputCol\u003d\"text\", outputCol\u003d\"words\")\nhashingTF \u003d HashingTF(inputCol\u003d\"words\", outputCol\u003d\"rawFeatures\")\nidf       \u003d IDF(inputCol\u003d\"rawFeatures\", outputCol\u003d\"features\")\nnb        \u003d NaiveBayes(featuresCol\u003d\"features\", labelCol\u003d\"label\", smoothing\u003d1.0, modelType\u003d\"multinomial\")\n\npipeline \u003d Pipeline(stages\u003d[indexer, tokenizer, hashingTF, idf, nb])\n\nmodel \u003d pipeline.fit(twenty_train_df)\n",
-      "dateUpdated": "Feb 4, 2016 5:42:51 PM",
+      "dateUpdated": "Feb 18, 2016 12:48:10 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -767,14 +965,14 @@
         "msg": ""
       },
       "dateCreated": "Jan 21, 2016 2:13:50 PM",
-      "dateStarted": "Feb 4, 2016 5:42:51 PM",
-      "dateFinished": "Feb 4, 2016 5:43:42 PM",
+      "dateStarted": "Feb 18, 2016 12:48:10 PM",
+      "dateFinished": "Feb 18, 2016 12:48:31 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n\n### 4.3 Validation",
-      "dateUpdated": "Feb 4, 2016 5:43:47 PM",
+      "text": "%md\n\n### 3.2.3 Validation",
+      "dateUpdated": "Feb 18, 2016 9:08:53 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -798,17 +996,17 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003e4.3 Validation\u003c/h3\u003e\n"
+        "msg": "\u003ch3\u003e3.2.3 Validation\u003c/h3\u003e\n"
       },
       "dateCreated": "Jan 22, 2016 3:32:55 PM",
-      "dateStarted": "Feb 4, 2016 5:43:47 PM",
-      "dateFinished": "Feb 4, 2016 5:43:47 PM",
+      "dateStarted": "Feb 18, 2016 9:08:50 AM",
+      "dateFinished": "Feb 18, 2016 9:08:51 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n\nfrom pyspark.mllib.evaluation import MulticlassMetrics\n\nprediction \u003d model.transform(twenty_test_df)\n\npredictionAndLabels \u003d prediction.select(\"label\", \"prediction\").rdd.cache()\nmetrics \u003d MulticlassMetrics(predictionAndLabels)\n\nprint \"\\nCONFUSION MATRIX\"\nprint metrics.confusionMatrix().toArray()\n\nprint \"\\nCATEGORY                 PRECISION  RECALL  F1\"\nfor i in range(len(categories)):\n    l \u003d categories[i]\n    p \u003d metrics.precision(float(i))\n    r \u003d metrics.recall(float(i))\n    f \u003d metrics.fMeasure(float(i))\n    print \"%22s:  %2.2f       %2.2f    %2.2f\" % (l, p, r, f)",
-      "dateUpdated": "Feb 4, 2016 5:43:50 PM",
+      "text": "%pyspark\n\nfrom pyspark.mllib.evaluation import MulticlassMetrics\n\nprediction \u003d model.transform(twenty_test_df)\n\npredictionAndLabels \u003d prediction.select(\"label\", \"prediction\").rdd.cache()\nmetrics \u003d MulticlassMetrics(predictionAndLabels)\n\nvalidate(predictionAndLabels, categories)",
+      "dateUpdated": "Feb 18, 2016 1:32:26 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -831,34 +1029,23 @@
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
-        "msg": "\nCONFUSION MATRIX\n[[ 385.   16.    6.   29.]\n [   5.  350.    9.    4.]\n [   3.   15.  368.    1.]\n [   5.   15.    6.  285.]]\n\nCATEGORY                 PRECISION  RECALL  F1\nsoc.religion.christian:  0.97       0.88    0.92\n               sci.med:  0.88       0.95    0.92\n         comp.graphics:  0.95       0.95    0.95\n           alt.atheism:  0.89       0.92    0.90\n"
+        "msg": "\nCONFUSION MATRIX\nDenseMatrix([[ 385.,   16.,    6.,   29.],\n             [   5.,  350.,    9.,    4.],\n             [   3.,   15.,  368.,    1.],\n             [   5.,   15.,    6.,  285.]])\n\nCATEGORY                 PRECISION  RECALL\nsoc.religion.christian:  0.967      0.883\n               sci.med:  0.884      0.951\n         comp.graphics:  0.946      0.951\n           alt.atheism:  0.893      0.916\n\n"
       },
       "dateCreated": "Jan 22, 2016 1:47:54 PM",
-      "dateStarted": "Feb 4, 2016 5:43:50 PM",
-      "dateFinished": "Feb 4, 2016 5:44:54 PM",
+      "dateStarted": "Feb 18, 2016 1:32:26 PM",
+      "dateFinished": "Feb 18, 2016 1:32:32 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "config": {
-        "colWidth": 12.0,
-        "graph": {
-          "mode": "table",
-          "height": 300.0,
-          "optionOpen": false,
-          "keys": [],
-          "values": [],
-          "groups": [],
-          "scatter": {}
-        }
-      },
+      "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
-      "jobName": "paragraph_1453477376611_-1108607732",
-      "id": "20160122-154256_1899719489",
-      "dateCreated": "Jan 22, 2016 3:42:56 PM",
+      "jobName": "paragraph_1455788891230_-1614861232",
+      "id": "20160218-104811_1933914376",
+      "dateCreated": "Feb 18, 2016 10:48:11 AM",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
